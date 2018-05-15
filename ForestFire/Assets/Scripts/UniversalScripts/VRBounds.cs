@@ -32,7 +32,10 @@ public class VRBounds : MonoBehaviour
         VRTK_SDKManager.instance.AddBehaviourToToggleOnLoadedSetupChange(this);
         _vertices = _cameraRig.GetComponent<SteamVR_PlayArea>().vertices;
         GetBounds();
+    }
 
+    private void Start()
+    {
         if (_showDebug)
         {
             string debugStatement = "<size=22><b><color=black>VRBounds</color></b></size>" + "\n";

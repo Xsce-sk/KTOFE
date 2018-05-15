@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator GetControllers()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         _leftController = VRTK_ControllerReference.GetControllerReference(gameObject.transform.GetChild(0).gameObject);
         _rightController = VRTK_ControllerReference.GetControllerReference(gameObject.transform.GetChild(1).gameObject);
 

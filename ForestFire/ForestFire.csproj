@@ -590,8 +590,9 @@
     <Compile Include="Assets\Imports\VRTK\SDK\Ximmerse\SDK_XimmerseDefines.cs" />
     <Compile Include="Assets\Imports\VRTK\SDK\Ximmerse\SDK_XimmerseHeadset.cs" />
     <Compile Include="Assets\Imports\VRTK\SDK\Ximmerse\SDK_XimmerseSystem.cs" />
-    <Compile Include="Assets\Scripts\ObstacleCourse\BotWallController.cs" />
-    <Compile Include="Assets\Scripts\ObstacleCourse\TopWallController.cs" />
+    <Compile Include="Assets\Scripts\ObstacleCourse\CeilingController.cs" />
+    <Compile Include="Assets\Scripts\ObstacleCourse\HurdleController.cs" />
+    <Compile Include="Assets\Scripts\ObstacleCourse\ObstacleCourseChallenge.cs" />
     <Compile Include="Assets\Scripts\ObstacleCourse\VerticalGapWallController.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\Believer.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\Oracle.cs" />
@@ -600,8 +601,9 @@
     <Compile Include="Assets\Scripts\UniversalScripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\UniversalScripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\UniversalScripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\UniversalScripts\Persist.cs" />
     <Compile Include="Assets\Scripts\UniversalScripts\VRBounds.cs" />
-    <Compile Include="Assets\Scripts\WallCloseIn\ChallengeWall.cs" />
+    <Compile Include="Assets\Scripts\WallClosing\WallClosingChallenge.cs" />
     <Compile Include="Assets\Scripts\WIP\Tether.cs" />
     <Compile Include="Assets\Scripts\WIP\VelocityVolume.cs" />
   </ItemGroup>

@@ -10,7 +10,7 @@ public class EventManager : MonoBehaviour
 	private static EventManager eventManager;
 
     // Private Members
-    private static bool _showDebug = false;
+    private static bool _showDebug = true;
 
     public static EventManager instance
 	{
@@ -86,7 +86,7 @@ public class EventManager : MonoBehaviour
 			thisEvent.Invoke ();
             if (_showDebug)
             {
-                string debugStatement = "<size=22><b><color=blue>EventManager</color></b></size>" + "\n";
+                string debugStatement = "<size=22><b><color=magenta>EventManager.TriggerEvent(string eventName)</color></b></size>" + "\n";
                 debugStatement += string.Format("<b><color=magenta>void TriggerEvent(string eventName = {0})</color></b>", eventName) + "\n";
                 debugStatement += "<b><color=cyan>Triggered</color></b>: " + instance.eventDictionary.TryGetValue(eventName, out thisEvent) + "\n";
                 Debug.Log(debugStatement);
@@ -98,7 +98,7 @@ public class EventManager : MonoBehaviour
     {
         if (_showDebug)
         {
-            string debugStatement = "<size=22><b><color=blue>EventManager</color></b></size>" + "\n";
+            string debugStatement = "<size=22><b><color=black>EventManager</color></b></size>" + "\n";
             foreach(KeyValuePair<string, UnityEvent> entry in eventDictionary)
             {
                 debugStatement += "<b><color=cyan>EventName</color>: </b>" + entry.Key + "\n";

@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
+    private void Start()
+    {
         if (_showDebug)
         {
             string debugStatement = "<size=22><b><color=black>GameController</color></b></size>" + "\n";
