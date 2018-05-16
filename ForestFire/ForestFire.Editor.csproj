@@ -325,6 +325,7 @@
     <None Include="Assets\Imports\VRTK\Scripts\Internal\Shaders\UIOverlay.shader" />
     <None Include="Assets\Imports\VRTK\Scripts\Internal\Shaders\Unlit_TransparentColor.shader" />
     <None Include="Assets\Imports\VRTK\Scripts\Internal\Shaders\VRTK_OutlineBasic.shader" />
+    <None Include="Assets\Materials\Default.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

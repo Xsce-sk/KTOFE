@@ -50,7 +50,8 @@ public class CeilingController : MonoBehaviour
 
         // Set Wall Scale
         float wallWidth = Random.Range(width, GameManager.game.difficulty * width);
-        _wallTransform.localScale = new Vector3(VRBounds.bounds.length * 2f, wallHeight, wallWidth);
+        float wallLength = VRBounds.bounds.length * 2f;
+        _wallTransform.localScale = new Vector3(wallLength, wallHeight, wallWidth);
 
         // Set Name
         _name.GetComponent<TextMesh>().text = defaultName;
@@ -58,7 +59,7 @@ public class CeilingController : MonoBehaviour
         {
             _name.GetComponent<TextMesh>().text = trickNames[Random.Range(0, trickNames.Count)];
         }
-        _name.GetComponent<Transform>().position = new Vector3(0f, height, -wallWidth / 2);
+        _name.GetComponent<Transform>().position = new Vector3(-(wallLength / 2f) + 0.05f, height, -wallWidth / 2);
 
         if (_showDebug)
         {

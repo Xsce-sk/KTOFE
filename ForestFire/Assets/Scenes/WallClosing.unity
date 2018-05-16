@@ -202,12 +202,12 @@ Prefab:
     - target: {fileID: 114294409522859682, guid: a50a47355f106424fb6d7284e10fe2e9,
         type: 2}
       propertyPath: difficulty
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114294409522859682, guid: a50a47355f106424fb6d7284e10fe2e9,
         type: 2}
       propertyPath: speed
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a50a47355f106424fb6d7284e10fe2e9, type: 2}

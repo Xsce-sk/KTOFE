@@ -45,11 +45,11 @@ public class HurdleController : MonoBehaviour
 
         // Set Wall Position
         _wallTransform.position = new Vector3(0f, hurdleSize / 2, 0f);
-        _wallTransform.localScale = new Vector3(VRBounds.bounds.length * 2f, hurdleSize, 0.5f);
 
         // Set Wall Scale
         float wallWidth = Random.Range(width, GameManager.game.difficulty * width);
-        _wallTransform.localScale = new Vector3(VRBounds.bounds.length * 2f, hurdleSize, wallWidth);
+        float wallLength = VRBounds.bounds.length * 2f;
+        _wallTransform.localScale = new Vector3(wallLength, hurdleSize, wallWidth - 0.01f);
 
         // Set Name
         _name.GetComponent<TextMesh>().text = defaultName;
@@ -57,7 +57,7 @@ public class HurdleController : MonoBehaviour
         {
             _name.GetComponent<TextMesh>().text = trickNames[Random.Range(0, trickNames.Count)];
         }
-        _name.GetComponent<Transform>().position = new Vector3(0f, height, 0f);
+        _name.GetComponent<Transform>().position = new Vector3(-(wallLength / 2f) + 0.05f, hurdleSize, -wallWidth / 2);
 
         if (_showDebug)
         {

@@ -15,6 +15,7 @@ public class VerticalGapWallController : MonoBehaviour
 
     [Header("Wall Values")]
     public float height;
+    public float width;
 
     [Header("Name Values")]
     public string defaultName;
@@ -53,13 +54,16 @@ public class VerticalGapWallController : MonoBehaviour
         float botHeight = origin - (gapSize / 2);
         float topHeight = height - (gapSize + botHeight);
 
-        // Set Bot Wall Position
+        // Set Wall Positions
         _botWallTransform.position = new Vector3(0f, botHeight / 2, 0f);
-        _botWallTransform.localScale = new Vector3(VRBounds.bounds.length * 2f, botHeight, 0.5f);
-
-        // Set Top Wall Position
         _topWallTransform.position = new Vector3(0f, topHeight / 2 + (gapSize + botHeight), 0f);
-        _topWallTransform.localScale = new Vector3(VRBounds.bounds.length * 2f, topHeight, 0.5f);
+
+
+        // Set Wall Scales
+        float wallWidth = Random.Range(width, GameManager.game.difficulty * width);
+        float wallLength = VRBounds.bounds.length * 2f;
+        _topWallTransform.localScale = new Vector3(wallLength, topHeight, wallWidth);
+        _botWallTransform.localScale = new Vector3(wallLength, botHeight, wallWidth);
 
         // Set Name
         _name.GetComponent<TextMesh>().text = defaultName;
@@ -67,7 +71,7 @@ public class VerticalGapWallController : MonoBehaviour
         {
             _name.GetComponent<TextMesh>().text = trickNames[Random.Range(0, trickNames.Count)];
         }
-        _name.GetComponent<Transform>().position = new Vector3(0f, height, 0f);
+        _name.GetComponent<Transform>().position = new Vector3(-(wallLength / 2f) + 0.05f, height, -wallWidth / 2);
 
         if (_showDebug)
         {

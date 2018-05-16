@@ -11,14 +11,22 @@ public class ObstacleCourseChallenge : MonoBehaviour
     public float defaultDurationApart;
     public float minDurationApart;
 
+    [Header("Prefabs")]
+    public GameObject[] wallPrefabs;
+
     // Wall Array
-    private GameObject[] _walls;
+    private List<GameObject> _walls;
 
     // Use this for initialization
     void Start ()
     {
-        _walls = new GameObject[GameManager.game.difficulty];
-
+        for (int i = 0; i < GameManager.game.difficulty + 2; i++)
+        {
+            GameObject wallPrefab = wallPrefabs[Random.Range(0, wallPrefabs.Length)];
+            //GameObject wall = Instantiate(wallPrefab, wallPos, Quaternion.identity);
+            //Vector3 wallPos = new Vector3(0f, 0f, (i + 1) * 3f);
+            //_walls.Add();
+        }
     }
 	
 	// Update is called once per frame
