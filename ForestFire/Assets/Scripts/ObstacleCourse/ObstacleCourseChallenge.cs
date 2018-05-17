@@ -24,7 +24,6 @@ public class ObstacleCourseChallenge : MonoBehaviour
         {
             GameObject wallPrefab = wallPrefabs[Random.Range(0, wallPrefabs.Length)];
             GameObject wall = Instantiate(wallPrefab, Vector3.zero, Quaternion.identity);
-            //Vector3 wallPos = new Vector3(0f, 0f, (i + 1) * 3f);
             //_walls.Add();
         }
     }
