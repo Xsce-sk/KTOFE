@@ -23,7 +23,7 @@ public class ObstacleCourseChallenge : MonoBehaviour
         for (int i = 0; i < GameManager.game.difficulty + 2; i++)
         {
             GameObject wallPrefab = wallPrefabs[Random.Range(0, wallPrefabs.Length)];
-            //GameObject wall = Instantiate(wallPrefab, wallPos, Quaternion.identity);
+            GameObject wall = Instantiate(wallPrefab, Vector3.zero, Quaternion.identity);
             //Vector3 wallPos = new Vector3(0f, 0f, (i + 1) * 3f);
             //_walls.Add();
         }
