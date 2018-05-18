@@ -34,8 +34,7 @@ public class VerticalGapWallController : MonoBehaviour
     // Private Members
     private bool _showDebug = true;
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
         // Initialize Objects
         _name = gameObject.transform.GetChild(0).gameObject;

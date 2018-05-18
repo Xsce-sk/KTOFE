@@ -15,7 +15,7 @@ public class ObstacleCourseChallenge : MonoBehaviour
     public GameObject[] wallPrefabs;
 
     // Wall Array
-    private List<GameObject> _walls;
+    private List<GameObject> _walls = new List<GameObject>();
 
     // Use this for initialization
     void Start ()
@@ -23,14 +23,10 @@ public class ObstacleCourseChallenge : MonoBehaviour
         for (int i = 0; i < GameManager.game.difficulty + 2; i++)
         {
             GameObject wallPrefab = wallPrefabs[Random.Range(0, wallPrefabs.Length)];
-            GameObject wall = Instantiate(wallPrefab, Vector3.zero, Quaternion.identity);
-            //_walls.Add();
+            GameObject wall = Instantiate(wallPrefab, Vector3.zero, Quaternion.identity).gameObject;
+
+            wall.GetComponent<Transform>().position = new Vector3(0f, -5f, (i + 1) * defaultDistanceApart);
+            _walls.Add(wall);
         }
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 }
