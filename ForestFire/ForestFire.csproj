@@ -591,6 +591,7 @@
     <Compile Include="Assets\Imports\VRTK\SDK\Ximmerse\SDK_XimmerseHeadset.cs" />
     <Compile Include="Assets\Imports\VRTK\SDK\Ximmerse\SDK_XimmerseSystem.cs" />
     <Compile Include="Assets\Scripts\Bounce\BounceChallenge.cs" />
+    <Compile Include="Assets\Scripts\Flashlight\FlashlightChallenge.cs" />
     <Compile Include="Assets\Scripts\ObstacleCourse\CeilingController.cs" />
     <Compile Include="Assets\Scripts\ObstacleCourse\HurdleController.cs" />
     <Compile Include="Assets\Scripts\ObstacleCourse\ObstacleCourseChallenge.cs" />

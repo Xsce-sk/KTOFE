@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlashlightChallenge : MonoBehaviour {
-
+public class FlashlightChallenge : MonoBehaviour
+{
+    [Header("Wall Values")]
 	public float wallHeight = 3f;
+    public float wallWidth = 0.5f;
 
 	// Wall Objects
 	private GameObject _frontWall;
@@ -20,20 +22,22 @@ public class FlashlightChallenge : MonoBehaviour {
 		_rightWall = GameObject.Find("Right");
 		_topWall = GameObject.Find("Top");
 
-		_topWall.GetComponent<Transform> ().position = new Vector3 (0f, 0f, wallHeight);
-		_topWall.GetComponent<Transform> ().localScale = new Vector3(VRBounds.bounds.width, 0.5f, VRBounds.bounds.length);
+        float halfWidth = wallWidth / 2;
 
-		_frontWall.GetComponent<Transform>().position = new Vector3(0f, wallHeight / 2f, VRBounds.bounds.length / 2f);
-		_frontWall.GetComponent<Transform>().localScale = new Vector3(VRBounds.bounds.width, wallHeight, 0.5f);
+        _topWall.GetComponent<Transform> ().position = new Vector3 (0f, wallHeight + halfWidth, 0f);
+		_topWall.GetComponent<Transform> ().localScale = new Vector3(VRBounds.bounds.length, wallWidth, VRBounds.bounds.width);
 
-		_backWall.GetComponent<Transform>().position = new Vector3(0f, wallHeight / 2f, -VRBounds.bounds.length / 2f);
-		_backWall.GetComponent<Transform>().localScale = new Vector3(VRBounds.bounds.width, wallHeight, 0.5f);
+		_frontWall.GetComponent<Transform>().position = new Vector3(0f, wallHeight / 2f, VRBounds.bounds.width / 2f + halfWidth);
+		_frontWall.GetComponent<Transform>().localScale = new Vector3(VRBounds.bounds.length, wallHeight, wallWidth);
 
-		_leftWall.GetComponent<Transform>().position = new Vector3(-VRBounds.bounds.width / 2f, wallHeight / 2f, 0f);
-		_leftWall.GetComponent<Transform>().localScale = new Vector3(0.5f, wallHeight, VRBounds.bounds.length);
+		_backWall.GetComponent<Transform>().position = new Vector3(0f, wallHeight / 2f, -VRBounds.bounds.width / 2f - halfWidth);
+		_backWall.GetComponent<Transform>().localScale = new Vector3(VRBounds.bounds.length, wallHeight, wallWidth);
 
-		_rightWall.GetComponent<Transform>().position = new Vector3(VRBounds.bounds.width / 2f, wallHeight / 2f, 0f);
-		_rightWall.GetComponent<Transform>().localScale = new Vector3(0.5f, wallHeight, VRBounds.bounds.length);
+		_leftWall.GetComponent<Transform>().position = new Vector3(-VRBounds.bounds.length / 2f - halfWidth, wallHeight / 2f, 0f);
+		_leftWall.GetComponent<Transform>().localScale = new Vector3(wallWidth, wallHeight, VRBounds.bounds.width);
+
+		_rightWall.GetComponent<Transform>().position = new Vector3(VRBounds.bounds.length / 2f + halfWidth, wallHeight / 2f, 0f);
+		_rightWall.GetComponent<Transform>().localScale = new Vector3(wallWidth, wallHeight, VRBounds.bounds.width);
 	}
 
 	void Update () {
