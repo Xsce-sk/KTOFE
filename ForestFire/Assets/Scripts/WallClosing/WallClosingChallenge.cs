@@ -47,7 +47,7 @@ public class WallClosingChallenge : MonoBehaviour
 
         if (_showDebug)
         {
-            string debugStatement = "<size=22><b><color=black>ChallengeWall</color></b></size>" + "\n";
+            string debugStatement = "<size=22><b><color=black>WallClosingChallenge</color></b></size>" + "\n";
             debugStatement += "<b><color=cyan>height</color></b>: " + height + "\n";
             debugStatement += "<b><color=cyan>minGapSize</color></b>: " + minGapSize + "\n";
             debugStatement += "<b><color=cyan>defaultDuration</color></b>: " + defaultDuration + "\n";
@@ -100,7 +100,7 @@ public class WallClosingChallenge : MonoBehaviour
         // Hold Position
         if (_showDebug)
         {
-            string debugStatement = "<size=22><b><color=magenta>ChallengeWall.Hold()</color></b></size>" + "\n";
+            string debugStatement = "<size=22><b><color=magenta>WallClosingChallenge.Hold()</color></b></size>" + "\n";
             debugStatement += "<b><color=magenta>Holding()</color></b>" + "\n";
             debugStatement += "<b><color=cyan>gapSize</color></b>: " + gapSize + "\n";
             debugStatement += "<b><color=cyan>seconds</color></b>: " + 1f + "\n";
@@ -131,7 +131,7 @@ public class WallClosingChallenge : MonoBehaviour
 
         if (_showDebug)
         {
-            string debugStatement = "<size=22><b><color=magenta>ChallengeWall.Rise(GameObject wall, float sec)</color></b></size>" + "\n";
+            string debugStatement = "<size=22><b><color=magenta>WallClosingChallenge.Rise(GameObject wall, float sec)</color></b></size>" + "\n";
             debugStatement += string.Format("<b><color=cyan>void Rise(GameObject wall = {0}, float sec = {1})</color></b>", wall, sec) + "\n";
             debugStatement += "<b><color=cyan>startPos</color></b>: " + startPos + "\n";
             debugStatement += "<b><color=cyan>endPos</color></b>: " + endPos + "\n";
@@ -159,7 +159,7 @@ public class WallClosingChallenge : MonoBehaviour
 
         if (_showDebug)
         {
-            string debugStatement = "<size=22><b><color=magenta>ChallengeWall.Contract(float gapSize, float sec)</color></b></size>" + "\n";
+            string debugStatement = "<size=22><b><color=magenta>WallClosingChallenge.Contract(float gapSize, float sec)</color></b></size>" + "\n";
             debugStatement += string.Format("<b><color=cyan>void Contract(float gapSize = {0}, float sec = {1})</color></b>", gapSize, sec) + "\n";
             debugStatement += "<b><color=cyan>(left) startPos</color></b>: " + startPosL + "\n";
             debugStatement += "<b><color=cyan>(left) endPos</color></b>: " + endPosL + "\n";
@@ -190,7 +190,7 @@ public class WallClosingChallenge : MonoBehaviour
 
         if (_showDebug)
         {
-            string debugStatement = "<size=22><b><color=magenta>ChallengeWall.Expand(float sec)</color></b></size>" + "\n";
+            string debugStatement = "<size=22><b><color=magenta>WallClosingChallenge.Expand(float sec)</color></b></size>" + "\n";
             debugStatement += string.Format("<b><color=cyan>void Expand(float sec = {0})</color></b>", sec) + "\n";
             debugStatement += "<b><color=cyan>(left) endPos</color></b>: " + endPosL + "\n";
             debugStatement += "<b><color=cyan>(left) seconds</color></b>: " + secondsL + "\n";
@@ -214,7 +214,7 @@ public class WallClosingChallenge : MonoBehaviour
 
         if (_showDebug)
         {
-            string debugStatement = "<size=22><b><color=magenta>ChallengeWall.Fall(GameObject wall, float sec)</color></b></size>" + "\n";
+            string debugStatement = "<size=22><b><color=magenta>WallClosingChallenge.Fall(GameObject wall, float sec)</color></b></size>" + "\n";
             debugStatement += string.Format("<b><color=cyan>void Fall(GameObject wall = {0}, float sec = {1})</color></b>", wall, sec) + "\n";
             debugStatement += "<b><color=cyan>startPos</color></b>: " + startPos + "\n";
             debugStatement += "<b><color=cyan>endPos</color></b>: " + endPos + "\n";

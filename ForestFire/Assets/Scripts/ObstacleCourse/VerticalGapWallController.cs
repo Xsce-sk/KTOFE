@@ -17,13 +17,6 @@ public class VerticalGapWallController : MonoBehaviour
     public float height;
     public float width;
 
-    [Header("Name Values")]
-    public string defaultName;
-    public List<string> trickNames;
-    public float trickDifficulty;
-    [Tooltip("One out of how many names should be a trick")]
-    public int trickFrequency;
-
     // Object References
     private GameObject _name;
 
@@ -32,16 +25,13 @@ public class VerticalGapWallController : MonoBehaviour
     private Transform _botWallTransform;
 
     // Private Members
-    private bool _showDebug = true;
+    private bool _showDebug = false;
 
     void Awake()
     {
-        // Initialize Objects
-        _name = gameObject.transform.GetChild(0).gameObject;
-
         // Initialize Components
-        _topWallTransform = gameObject.transform.GetChild(1);
-        _botWallTransform = gameObject.transform.GetChild(2);
+        _topWallTransform = gameObject.transform.GetChild(0);
+        _botWallTransform = gameObject.transform.GetChild(1);
         
         // Calc Gap
         float gapSize = defaultGapSize;
@@ -59,18 +49,10 @@ public class VerticalGapWallController : MonoBehaviour
 
 
         // Set Wall Scales
-        float wallWidth = Random.Range(width, GameManager.game.difficulty * width);
+        float wallWidth = Random.Range(width, width * 4f);
         float wallLength = VRBounds.bounds.length * 2f;
         _topWallTransform.localScale = new Vector3(wallLength, topHeight, wallWidth);
         _botWallTransform.localScale = new Vector3(wallLength, botHeight, wallWidth);
-
-        // Set Name
-        _name.GetComponent<TextMesh>().text = defaultName;
-        if (GameManager.game.difficulty >= trickDifficulty && Random.Range(0, trickFrequency - 1) == 0)
-        {
-            _name.GetComponent<TextMesh>().text = trickNames[Random.Range(0, trickNames.Count)];
-        }
-        _name.GetComponent<Transform>().position = new Vector3(-(wallLength / 2f) + 0.05f, height, -wallWidth / 2);
 
         if (_showDebug)
         {
@@ -80,7 +62,6 @@ public class VerticalGapWallController : MonoBehaviour
             debugStatement += "<b><color=cyan>botHeight</color></b>: " + botHeight + "\n";
             debugStatement += "<b><color=cyan>topHeight</color></b>: " + topHeight + "\n";
             debugStatement += string.Format("<b><color=cyan>Target Height ({0})</color></b>: ", height) + (gapSize + botHeight + topHeight) + "\n";
-            debugStatement += "<b><color=cyan>name</color></b>: " + _name.GetComponent<TextMesh>().text + "\n";
             Debug.Log(debugStatement);
         }
     }
