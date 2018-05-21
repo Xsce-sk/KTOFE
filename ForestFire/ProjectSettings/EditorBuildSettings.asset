@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/WallClosing.unity
+    guid: 8b83f8f464740184e993244f636dc49d
+  - enabled: 1
+    path: Assets/Scenes/ObstacleCourse.unity
+    guid: 9b9e1de71fc4bc442ad33b8c3cc73fa3

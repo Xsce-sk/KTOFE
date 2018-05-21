@@ -6,10 +6,10 @@ public class ObstacleCourseChallenge : MonoBehaviour
 {
     // Public Members
     [Header("Challenge Values")]
-    public float distanceApart;
-    public float defaultDuration;
-    public float minDuration;
-    public float distanceBelowFloor;
+    public float distanceApart = 5f;
+    public float defaultDuration = 5f;
+    public float minDuration = 1f;
+    public float distanceBelowFloor = 5f;
 
     [Header("Prefabs")]
     public GameObject[] wallPrefabs;
@@ -114,7 +114,7 @@ public class ObstacleCourseChallenge : MonoBehaviour
             Vector3 startPos = _walls[i].GetComponent<Transform>().position;
             Vector3 endPos = new Vector3(startPos.x, startPos.y, startPos.z - distance);
             float seconds = sec;
-            bool ease = true;
+            bool ease = false;
             _walls[i].gameObject.GetComponent<Movement>().MoveTo(endPos, seconds, ease);
         }
 

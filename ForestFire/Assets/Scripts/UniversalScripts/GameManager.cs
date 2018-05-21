@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     public int difficulty = 1;
     public int speed = 1;
     public int score = 0;
+    public List<string> challenges;
 
     // Private Members
     private bool _showDebug = true;
+    
 
     private void Awake()
     {
@@ -75,7 +77,12 @@ public class GameManager : MonoBehaviour
 
     void ChangeScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        string newSceneName = challenges[Random.Range(0, challenges.Count)];
+        //while (newSceneNum == SceneManager.GetActiveScene().buildIndex)
+        //{
+        //    newSceneNum = Random.Range(0, SceneManager.sceneCount);
+        //}
+        SceneManager.LoadScene(newSceneName);
     }
 
     void IncreaseDifficulty()

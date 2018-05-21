@@ -10,8 +10,8 @@ public class HurdleController : MonoBehaviour
     public float maxHurdleSize = 1f;
 
     [Header("Wall Values")]
-    public float height;
-    public float width;
+    public float height = 3f;
+    public float width = 0.5f;
 
     // Components
     private Transform _wallTransform;

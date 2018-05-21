@@ -7,12 +7,12 @@ public class CeilingController : MonoBehaviour
 {
     // Public Members
     [Header("Gap Values")]
-    public float defaultGapSize;
-    public float minGapSize;
+    public float defaultGapSize = 0.6f;
+    public float minGapSize = 0.3f;
 
     [Header("Wall Values")]
-    public float height;
-    public float width;
+    public float height = 3f;
+    public float width = 0.5f;
 
     // Components
     private Transform _wallTransform;

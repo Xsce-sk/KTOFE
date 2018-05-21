@@ -6,16 +6,16 @@ public class VerticalGapWallController : MonoBehaviour
 {
     // Public Members
     [Header("Gap Values")]
-    public float defaultGapSize;
-    public float minGapSize;
+    public float defaultGapSize = 1f;
+    public float minGapSize = 0.3f;
     [Tooltip("Gap Height is calculated as the bottom of the gap being at the min")]
-    public float minGapHeight;
+    public float minGapHeight = 1f;
     [Tooltip("Gap Height is calculated as the bottom of the gap being at the max")]
-    public float maxGapHeight;
+    public float maxGapHeight = 0.5f;
 
     [Header("Wall Values")]
-    public float height;
-    public float width;
+    public float height = 3f;
+    public float width = 0.5f;
 
     // Object References
     private GameObject _name;

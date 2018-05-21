@@ -7,11 +7,11 @@ public class WallClosingChallenge : MonoBehaviour
 {
     // Public Members
     [Header("Challenge Values")]
-    public float height;
-    public float defaultGapSize;
-    public float minGapSize;
-    public float defaultDuration;
-    public float minDuration;
+    public float height = 3f;
+    public float defaultGapSize = 1.5f;
+    public float minGapSize = 0.5f;
+    public float defaultDuration = 6f;
+    public float minDuration = 1f;
 
     // Wall Values
     private GameObject _wallLeft;
