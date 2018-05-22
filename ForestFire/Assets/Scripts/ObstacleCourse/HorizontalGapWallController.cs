@@ -24,7 +24,7 @@ public class HorizontalGapWallController : MonoBehaviour
         float wallLength = VRBounds.bounds.length * 2f;
         _wallTransform.localScale = new Vector3(wallLength / 2f, height, width);
 
-        if (Random.Range(0, 1) == 0) // Make Left Wall
+        if (Random.Range(0, 2) == 0) // Make Left Wall
         {
             _wallType = "Left";
             _wallTransform.position = new Vector3(-wallLength / 4f, height / 2f, 0f);
