@@ -8,6 +8,17 @@ public class FlashlightChallenge : MonoBehaviour
 	public float wallHeight = 3f;
     public float wallWidth = 0.5f;
 
+	[Header("Materials")]
+	public Material red;
+	public Material green;
+
+	GameObject leftCont;
+	GameObject rightCont;
+
+	GameObject target;
+
+
+
 	// Wall Objects
 	private GameObject _frontWall;
 	private GameObject _backWall;
@@ -21,6 +32,11 @@ public class FlashlightChallenge : MonoBehaviour
 		_leftWall = GameObject.Find("Left");
 		_rightWall = GameObject.Find("Right");
 		_topWall = GameObject.Find("Top");
+
+		leftCont = GameObject.Find ("Controller (left)");
+		rightCont = GameObject.Find ("Controller (right)");
+
+		target = GameObject.Find ("target");
 
         float halfWidth = wallWidth / 2;
 
@@ -40,7 +56,28 @@ public class FlashlightChallenge : MonoBehaviour
 		_rightWall.GetComponent<Transform>().localScale = new Vector3(wallWidth, wallHeight, VRBounds.bounds.width);
 	}
 
+	void castRays()
+	{
+		RaycastHit hit1;
+		RaycastHit hit2;
+		if (Physics.Raycast (leftCont.transform.position, Vector3.forward, out hit1)) 
+		{
+			if (hit1.transform.tag == "target")
+				target.transform.GetChild (0).gameObject.GetComponent<MeshRenderer> ().material = green;
+			else
+				target.transform.GetChild (0).gameObject.GetComponent<MeshRenderer> ().material = red;
+		}
+
+		if (Physics.Raycast (rightCont.transform.position, Vector3.forward, out hit2)) 
+		{
+			if (hit2.transform.tag == "target")
+				target.transform.GetChild (1).gameObject.GetComponent<MeshRenderer> ().material = green;
+			else
+				target.transform.GetChild (1).gameObject.GetComponent<MeshRenderer> ().material = red;
+		}
+	}
+
 	void Update () {
-		
+		castRays ();
 	}
 }

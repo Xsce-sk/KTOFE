@@ -2,8 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Flashlight\FlashlightChallenge.cs">
     <Files>
-      <File FileName="Assets\Scripts\Bounce\BounceChallenge.cs" Line="10" Column="5" />
-      <File FileName="Assets\Scripts\Flashlight\FlashlightChallenge.cs" Line="22" Column="3" />
+      <File FileName="Assets\Scripts\Flashlight\FlashlightChallenge.cs" Line="81" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
