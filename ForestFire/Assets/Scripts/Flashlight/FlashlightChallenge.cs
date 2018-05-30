@@ -12,8 +12,9 @@ public class FlashlightChallenge : MonoBehaviour
 	public Material red;
 	public Material green;
 
-	GameObject leftCont;
-	GameObject rightCont;
+    [Header("Controllers")]
+    public GameObject leftCont;
+	public GameObject rightCont;
 
 	GameObject target;
 
@@ -26,15 +27,14 @@ public class FlashlightChallenge : MonoBehaviour
 	private GameObject _rightWall;
 	private GameObject _topWall;
 
-	void Start () {
+	void Start ()
+    {
 		_frontWall = GameObject.Find("Front");
 		_backWall = GameObject.Find("Back");
 		_leftWall = GameObject.Find("Left");
 		_rightWall = GameObject.Find("Right");
 		_topWall = GameObject.Find("Top");
 
-		leftCont = GameObject.Find ("Controller (left)");
-		rightCont = GameObject.Find ("Controller (right)");
 
 		target = GameObject.Find ("target");
 
@@ -60,17 +60,21 @@ public class FlashlightChallenge : MonoBehaviour
 	{
 		RaycastHit hit1;
 		RaycastHit hit2;
-		if (Physics.Raycast (leftCont.transform.position, Vector3.forward, out hit1)) 
+
+        Debug.DrawRay(leftCont.transform.position, leftCont.transform.TransformDirection(Vector3.forward), Color.green);
+        Debug.DrawRay(rightCont.transform.position, rightCont.transform.TransformDirection(Vector3.forward), Color.green);
+
+        if (Physics.Raycast (leftCont.transform.position, leftCont.transform.TransformDirection(Vector3.forward), out hit1)) 
 		{
-			if (hit1.transform.tag == "target")
+			if (hit1.transform.tag == "Target")
 				target.transform.GetChild (0).gameObject.GetComponent<MeshRenderer> ().material = green;
 			else
 				target.transform.GetChild (0).gameObject.GetComponent<MeshRenderer> ().material = red;
 		}
 
-		if (Physics.Raycast (rightCont.transform.position, Vector3.forward, out hit2)) 
+		if (Physics.Raycast (rightCont.transform.position, rightCont.transform.TransformDirection(Vector3.forward), out hit2)) 
 		{
-			if (hit2.transform.tag == "target")
+			if (hit2.transform.tag == "Target")
 				target.transform.GetChild (1).gameObject.GetComponent<MeshRenderer> ().material = green;
 			else
 				target.transform.GetChild (1).gameObject.GetComponent<MeshRenderer> ().material = red;
