@@ -35,16 +35,30 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         EventManager.StartListening("Death", VibrateControllers);
+        EventManager.StartListening("PulseLeft", PulseLeftController);
+        EventManager.StartListening("PulseRight", PulseRightController);
     }
 
     private void OnDisable()
     {
         EventManager.StopListening("Death", VibrateControllers);
+        EventManager.StopListening("PulseLeft", PulseLeftController);
+        EventManager.StopListening("PulseRight", PulseRightController);
     }
 
     void VibrateControllers()
     {
         VRTK_ControllerHaptics.TriggerHapticPulse(_leftController, 1f, 2.5f, 0.01f);
         VRTK_ControllerHaptics.TriggerHapticPulse(_rightController, 1f, 2.5f, 0.01f);
+    }
+
+    void PulseLeftController()
+    {
+        VRTK_ControllerHaptics.TriggerHapticPulse(_leftController, 1f);
+    }
+
+    void PulseRightController()
+    {
+        VRTK_ControllerHaptics.TriggerHapticPulse(_rightController, 1f);
     }
 }

@@ -591,9 +591,13 @@
     <Compile Include="Assets\Imports\VRTK\SDK\Ximmerse\SDK_XimmerseHeadset.cs" />
     <Compile Include="Assets\Imports\VRTK\SDK\Ximmerse\SDK_XimmerseSystem.cs" />
     <Compile Include="Assets\Scripts\Bounce\BounceChallenge.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Lasers\LasersChallenge.cs" />
     <Compile Include="Assets\Scripts\MainMenu\MenuController.cs" />
     <Compile Include="Assets\Scripts\MainMenu\StartButtonController.cs" />
+=======
+    <Compile Include="Assets\Scripts\Flashlight\FlashlightChallenge.cs" />
+>>>>>>> Flashlight
     <Compile Include="Assets\Scripts\ObstacleCourse\CeilingController.cs" />
     <Compile Include="Assets\Scripts\ObstacleCourse\HorizontalGapWallController.cs" />
     <Compile Include="Assets\Scripts\ObstacleCourse\HurdleController.cs" />
