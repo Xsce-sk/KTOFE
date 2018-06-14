@@ -10,7 +10,7 @@ public class EventManager : MonoBehaviour
 	private static EventManager eventManager;
 
     // Private Members
-    private static bool _showDebug = true;
+    private static bool _showDebug = false;
 
     public static EventManager instance
 	{

@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/MainMenu.unity
-=======
-- path: Assets/Scenes/Flashlight.unity
->>>>>>> Flashlight
   isLoaded: 1
   isActive: 1

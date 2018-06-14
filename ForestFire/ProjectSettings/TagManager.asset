@@ -8,6 +8,8 @@ TagManager:
   - BelieverObstacle
   - OracleObstacle
   - Target
+  - RestartButton
+  - StartButton
   layers:
   - Default
   - TransparentFX

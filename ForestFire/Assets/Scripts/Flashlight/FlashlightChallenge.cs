@@ -54,10 +54,11 @@ public class FlashlightChallenge : MonoBehaviour
         SetWallPositions();
 
         // Get Text Component
+        timerText.SetActive(true);
         _timerTextComponent = timerText.GetComponent<Text>();
 
         // Target Functions
-        _target = GameObject.Find ("target");
+        _target = GameObject.Find("target");
         SetTargetScale();
         SetTargetPosition();
         

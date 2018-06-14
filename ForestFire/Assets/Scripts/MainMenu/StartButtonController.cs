@@ -5,27 +5,41 @@ using VRTK;
 
 public class StartButtonController : MonoBehaviour
 {
-    // Components
-    private VRTK_InteractableObject interactableObject;
+    private bool _onButton;
+    private bool _started;
 
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
-        interactableObject = GetComponent<VRTK_InteractableObject>();
+        GetComponent<VRTK_InteractTouch>().ControllerStartTouchInteractableObject += new ObjectInteractEventHandler(OnControllerTouchInteractableObject);
+        GetComponent<VRTK_InteractTouch>().ControllerStartUntouchInteractableObject += new ObjectInteractEventHandler(OnControllerUntouchInteractableObject);
+        GetComponent<VRTK_ControllerEvents>().TriggerClicked += new ControllerInteractionEventHandler(DoTriggerClicked);
     }
 
-    private void Update()
+    private void OnControllerTouchInteractableObject(object o, ObjectInteractEventArgs e)
     {
-        Debug.Log("Touching: " + interactableObject.IsTouched());
-        Debug.Log("Using: " + interactableObject.IsUsing());
-        if (interactableObject.IsUsing())
+        Debug.Log(e.target.gameObject.tag);
+        string tag = e.target.gameObject.tag;
+        if (tag == "StartButton")
         {
-            StartChallenges();
+            _onButton = true;
         }
     }
 
-    void StartChallenges()
+    private void OnControllerUntouchInteractableObject(object o, ObjectInteractEventArgs e)
     {
-        Debug.Log("Starting Game");
+        string tag = e.target.gameObject.tag;
+        if (tag == "StartButton")
+        {
+            _onButton = false;
+        }
+    }
+
+    private void DoTriggerClicked(object o, ControllerInteractionEventArgs e)
+    {
+        if (_onButton && !_started)
+        {
+            EventManager.TriggerEvent("StartGame");
+            _started = true;
+        }
     }
 }

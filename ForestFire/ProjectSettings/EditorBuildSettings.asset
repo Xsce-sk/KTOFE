@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c97dc9f6885860343807ec422c43ea9c
+  - enabled: 1
     path: Assets/Scenes/WallClosing.unity
     guid: 8b83f8f464740184e993244f636dc49d
   - enabled: 1
     path: Assets/Scenes/ObstacleCourse.unity
     guid: 9b9e1de71fc4bc442ad33b8c3cc73fa3
+  - enabled: 1
+    path: Assets/Scenes/Flashlight.unity
+    guid: 4d34a3af9ac52c745882cddd3639c190
+  - enabled: 1
+    path: Assets/Scenes/Bounce.unity
+    guid: 912e0f61c0587d148b9175bd61db1b78
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 2fd237c5ae0be4b488d536f9f97ff635

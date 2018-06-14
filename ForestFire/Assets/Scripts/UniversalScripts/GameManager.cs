@@ -12,11 +12,13 @@ public class GameManager : MonoBehaviour
     public int difficulty = 1;
     public int speed = 1;
     public int score = 0;
+    public string promptText;
+    
     public List<string> challenges;
+    public List<string> promptTexts;
 
     // Private Members
     private bool _showDebug = true;
-    
 
     private void Awake()
     {
@@ -45,19 +47,33 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        EventManager.StartListening("StartGame", StartGame);
         EventManager.StartListening("ChallengeCompleted", StartNewChallenge);
+        EventManager.StartListening("Death", EndGame);
+        EventManager.StartListening("Restart", GoToStartMenu);
+        
     }
 
-    private void OnDisable()
+    void StartGame()
     {
-        EventManager.StopListening("ChallengeCompleted", StartNewChallenge);
+        StartCoroutine("LoadFirstScene");
+
+        if (_showDebug)
+        {
+            string debugStatement = "<size=22><b><color=magenta>GameController</color></b></size>" + "\n";
+            debugStatement += "<b><color=magenta>void StartGame()</color></b>" + "\n";
+            debugStatement += "<b><color=cyan>difficulty</color></b>: " + difficulty + "\n";
+            debugStatement += "<b><color=cyan>speed</color></b>: " + speed + "\n";
+            debugStatement += "<b><color=cyan>score</color></b>: " + score + "\n";
+            Debug.Log(debugStatement);
+        }
     }
 
     void StartNewChallenge()
     {
         IncreaseScore();
         IncreaseDifficulty();
-        ChangeScene();
+        StartCoroutine("ChangeScene");
 
         if (_showDebug)
         {
@@ -75,13 +91,37 @@ public class GameManager : MonoBehaviour
         score = score + 1;
     }
 
-    void ChangeScene()
+    IEnumerator ChangeScene()
     {
-        string newSceneName = challenges[Random.Range(0, challenges.Count)];
-        //while (newSceneNum == SceneManager.GetActiveScene().buildIndex)
-        //{
-        //    newSceneNum = Random.Range(0, SceneManager.sceneCount);
-        //}
+        string[] winText = new string[] { "Good Job", "Wowee", "Nice", "Nice Moves", "Great", "Fantastic", "Mackin Dirty On Em", "Nice Job", "Challenge Complete", "Challenge Passed", "Nice Wow", "Passed", "More Points", "Awesome", "Congratulations", "I Like 8 Year Old Boys"};
+        promptText = winText[Random.Range(0, winText.Length)] + "!";
+        EventManager.TriggerEvent("WinPrompt");
+        yield return new WaitForSeconds(2f);
+
+
+        int randCount = Random.Range(0, challenges.Count);
+        string newSceneName = challenges[randCount];
+        promptText = promptTexts[randCount];
+
+        EventManager.TriggerEvent("Prompt");
+        yield return new WaitForSeconds(3f);
+
+        SceneManager.LoadScene(newSceneName);
+    }
+
+    IEnumerator LoadFirstScene()
+    {
+        promptText = "Starting Game!";
+        EventManager.TriggerEvent("StartPrompt");
+        yield return new WaitForSeconds(3f);
+
+        int randCount = Random.Range(0, challenges.Count);
+        string newSceneName = challenges[randCount];
+        promptText = promptTexts[randCount];
+
+        EventManager.TriggerEvent("Prompt");
+        yield return new WaitForSeconds(3f);
+
         SceneManager.LoadScene(newSceneName);
     }
 
@@ -111,10 +151,59 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void EndGame()
+    {
+        StartCoroutine("MoveToEndScene");
+        
+        if (_showDebug)
+        {
+            string debugStatement = "<size=22><b><color=magenta>GameController</color></b></size>" + "\n";
+            debugStatement += "<b><color=magenta>void EndGame()</color></b>" + "\n";
+            debugStatement += "<b><color=cyan>difficulty</color></b>: " + difficulty + "\n";
+            debugStatement += "<b><color=cyan>speed</color></b>: " + speed + "\n";
+            debugStatement += "<b><color=cyan>score</color></b>: " + score + "\n";
+            Debug.Log(debugStatement);
+        }
+    }
+
+    IEnumerator MoveToEndScene()
+    {
+        EventManager.TriggerEvent("LosePrompt");
+        yield return new WaitForSeconds(3f);
+
+        SceneManager.LoadScene("EndScene");
+    }
+
     private void OnGUI()
     {
         GUI.Label(new Rect( 10, 10, 100, 30 ), "Difficulty: " + difficulty);
         GUI.Label(new Rect(10, 30, 100, 30), "Speed: " + speed);
         GUI.Label(new Rect(10, 50, 100, 30), "Score: " + score);
+    }
+
+    void GoToStartMenu()
+    {
+        StartCoroutine("MoveToStartScene");
+        difficulty = 1;
+        speed = 1;
+        score = 0;
+
+        if (_showDebug)
+        {
+            string debugStatement = "<size=22><b><color=magenta>GameController</color></b></size>" + "\n";
+            debugStatement += "<b><color=magenta>void GoToStartMenu()</color></b>" + "\n";
+            debugStatement += "<b><color=cyan>difficulty</color></b>: " + difficulty + "\n";
+            debugStatement += "<b><color=cyan>speed</color></b>: " + speed + "\n";
+            debugStatement += "<b><color=cyan>score</color></b>: " + score + "\n";
+            Debug.Log(debugStatement);
+        }
+    }
+
+    IEnumerator MoveToStartScene()
+    {
+        EventManager.TriggerEvent("RestartPrompt");
+        yield return new WaitForSeconds(3f);
+
+        SceneManager.LoadScene("MainMenu");
     }
 }
